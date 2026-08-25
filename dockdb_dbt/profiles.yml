@@ -1,0 +1,8 @@
+lakehouse_local:
+  target: dev
+
+  outputs:
+    dev:
+      type: duckdb
+      path: "dockdb.db"
+      threads: 4
