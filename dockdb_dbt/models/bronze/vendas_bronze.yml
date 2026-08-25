@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: vendas_bronze
+    description: >
+      Tabela da camada Bronze contendo os dados de vendas
+      ingeridos a partir do arquivo CSV de origem.
+      Os dados são mantidos com estrutura e tipagem próximas
+      à fonte, sem aplicação de regras de negócio.
+
+    columns:
+      - name: id_pedido
+        data_tests:
+        - not_null
+        - unique
+        description: Identificador do pedido.
+
+      - name: id_cliente
+        description: Identificador do cliente.
+
+      - name: data_pedido
+        description: Data em que o pedido foi realizado.
+
+      - name: uf
+        description: Unidade federativa associada ao pedido.
+
+      - name: cidade
+        description: Cidade associada ao pedido.
+
+      - name: categoria_produto
+        description: Categoria do produto vendido.
+
+      - name: id_produto
+        description: Identificador do produto.
+
+      - name: quantidade
+        description: Quantidade de unidades vendidas.
+
+      - name: preco_unitario
+        description: Preço unitário do produto.
+
+      - name: desconto_pct
+        description: Percentual de desconto aplicado ao pedido.
+
+      - name: valor_frete
+        description: Valor do frete associado ao pedido.
+
+      - name: valor_bruto
+        description: Valor bruto da venda antes dos descontos.
+
+      - name: valor_total
+        description: Valor total da venda após aplicação das regras da origem.
+
+      - name: canal_venda
+        description: Canal utilizado para realização da venda.
+
+      - name: forma_pagamento
+        description: Forma de pagamento utilizada.
+
+      - name: status_pedido
+        description: Status do pedido.
