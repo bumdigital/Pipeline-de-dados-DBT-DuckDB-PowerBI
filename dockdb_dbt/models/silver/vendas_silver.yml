@@ -1,0 +1,118 @@
+version: 2
+
+models:
+  - name: vendas_silver
+    description: >
+      Tabela da camada Silver contendo os dados de vendas
+      tratados e padronizados a partir da camada Bronze.
+      Nesta camada são aplicadas regras de limpeza,
+      normalização de campos textuais e validações de qualidade,
+      preservando a estrutura principal dos dados de origem.
+
+    columns:
+      - name: id_pedido
+        description: Identificador único do pedido.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: id_cliente
+        description: Identificador do cliente associado ao pedido.
+        data_tests:
+          - not_null
+
+      - name: data_pedido
+        description: Data em que o pedido foi realizado.
+        data_tests:
+          - not_null
+
+      - name: uf
+        description: Unidade federativa associada ao pedido.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - AC
+                  - AL
+                  - AP
+                  - AM
+                  - BA
+                  - CE
+                  - DF
+                  - ES
+                  - GO
+                  - MA
+                  - MT
+                  - MS
+                  - MG
+                  - PA
+                  - PB
+                  - PR
+                  - PE
+                  - PI
+                  - RJ
+                  - RN
+                  - RS
+                  - RO
+                  - RR
+                  - SC
+                  - SP
+                  - SE
+                  - TO
+
+      - name: cidade
+        description: Cidade associada ao pedido.
+        data_tests:
+          - not_null
+
+      - name: categoria_produto
+        description: Categoria do produto vendido.
+        data_tests:
+          - not_null
+
+      - name: id_produto
+        description: Identificador do produto associado ao pedido.
+        data_tests:
+          - not_null
+
+      - name: quantidade
+        description: Quantidade de unidades vendidas no pedido.
+        data_tests:
+          - not_null
+
+      - name: preco_unitario
+        description: Preço unitário do produto no momento da venda.
+        data_tests:
+          - not_null
+
+      - name: desconto_pct
+        description: Percentual de desconto aplicado ao pedido.
+
+      - name: valor_frete
+        description: Valor do frete associado ao pedido.
+
+      - name: valor_bruto
+        description: Valor bruto do pedido antes de descontos e demais ajustes.
+        data_tests:
+          - not_null
+
+      - name: valor_total
+        description: Valor total final do pedido.
+        data_tests:
+          - not_null
+
+      - name: canal_venda
+        description: Canal utilizado para realização da venda.
+        data_tests:
+          - not_null
+
+      - name: forma_pagamento
+        description: Forma de pagamento utilizada no pedido.
+        data_tests:
+          - not_null
+
+      - name: status_pedido
+        description: Status atual do pedido.
+        data_tests:
+          - not_null
